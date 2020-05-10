@@ -1,0 +1,68 @@
+<%- include('header') -%>
+
+<form class="ui form" action="/games/addgame" method="post">
+  <div class="field">
+    <label>Name</label>
+    <input type="text" name="game_name" placeholder="Name..." required>
+  </div>
+  <div class="field">
+    <label>Image URL</label>
+    <input type="text" name="img_url" placeholder="Image URL..." required>
+  </div>
+  <div class="field">
+    <label>Description</label>
+    <textarea name="descriptiontext" required>Write something about the game!</textarea>
+  </div>
+  <div class="field">
+    <label>Release Date</label>
+    <input type="date" name="release_date" value="" required>
+  </div>
+  <div class="field">
+    <label>Revenue in Billions</label>
+    <input type="number" step="0.001" name="revenue" value="" required>
+  </div>
+  <div class="field">
+    <label>Developer</label>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="developer">
+      <i class="dropdown icon"></i>
+      <div class="default text">Developer</div>
+      <div class="menu">
+        <% devs.forEach(function(d){ %>
+        <div class="item" data-value="<%= d.id %>"><%= d.name %></div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Platforms</label>
+    <div>
+      <select name="platforms" multiple="" class="ui fluid dropdown" required>
+        <option value="">Platforms</option>
+        <% plats.forEach(function(p){ %>
+        <option value="<%= p.id %>"><%= p.name %></option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label>Genre</label>
+    <div>
+      <select name="genres" multiple="" class="ui fluid dropdown" required>
+        <option value="">Genres</option>
+        <% genres.forEach(function(g){ %>
+        <option value="<%= g.id %>"><%= g.name %></option>
+        <% }) %>
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label>Game Type</label>
+    <input type="text" name="types" placeholder="Game type separate by single , !" required>
+  </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>
+
+
+<script src="/assets/js/addgame.js"></script>
+<%- include('footer') -%>

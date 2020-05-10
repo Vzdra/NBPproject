@@ -1,0 +1,18 @@
+<%- include('header') -%>
+
+<h1 class="ui huge header">DEVELOPERS</h1>
+
+<div class="ui link cards">
+  <% data.forEach(function (d){ %>
+  <div class="card">
+    <div class="content">
+      <a class="header"><%= d.name %></a>
+      <div class="description">
+        <%= d.country %>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<%- include('footer') -%>

@@ -1,0 +1,45 @@
+<%- include('header') -%>
+
+<div class="ui items">
+  <div class="item" style="margin-top:50px; margin-bottom:50px;">
+    <div class="ui medium image">
+      <img src="<%= item.imgurl %>">
+    </div>
+    <div class="content">
+      <a class="header" style="font-size:40px; line-height:2"><%= item.gamename %></a>
+      <div class="description">
+        <span style="font-size:18px;"><%= item.description %></span>
+      </div>
+      <div class="meta" style="font-size:20px;">
+        <strong><%= item.yearreleased %></strong>
+        </div>
+      <div class="description">
+        Developer: <strong><%= item.devname %></strong>
+      </div>
+      <div class="meta">
+        Platforms:
+        <% item.platformarr.forEach((i) => { %>
+            <strong><span><%= i %></span></strong>
+        <% })  %>
+      </div>
+      <div class="meta">
+        Genres:
+        <% item.genrearr.forEach((i) => { %>
+            <strong><span><%= i %></span></strong>
+        <% })  %>
+      </div>
+      <div class="meta">
+        Types:
+        <% item.typearr.forEach((i) => { %>
+            <strong><span><%= i %></span></strong>
+        <% })  %>
+      </div>
+      <div style="margin-top:50px">
+        <button class="ui primary button"> Edit Game </button>
+        <button class="ui red button" onclick="window.location.href = '/games/<%= item.gameid %>/delete'"> Delete Game </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') -%>

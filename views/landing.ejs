@@ -1,0 +1,28 @@
+<%- include('header') -%>
+
+<h1 class="ui huge header">GAMES</h1>
+<button class="ui primary button" onclick="window.location.href = '/games/addgame'">
+  Add Game
+</button>
+    <div class="ui link cards" style="margin-top:30px">
+      <% data.forEach(function (d){ %>
+      <div class="card">
+        <a class="image" href="/games/<%= d.game_id %>">
+          <img src="<%= d.image_url %>">
+        </a>
+        <div class="content">
+          <a class="header" href="/games/<%= d.game_id %>"><%= d.name %></a>
+          <div class="description">
+            <%= d.description %>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            Released: <%= d.date_part %>
+          </span>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+<%- include('footer') -%>
